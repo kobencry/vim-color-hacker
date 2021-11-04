@@ -8,3 +8,7 @@ vim colors theme simple
 
 # java
 ![](https://github.com/kobencry/vim/blob/main/java.png)
+
+
+# python
+![](https://github.com/kobencry/vim/blob/main/python.png)
