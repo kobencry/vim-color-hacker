@@ -1,7 +1,7 @@
 " Name:             koben
 " Author:           GARSEC (Garuda Security)
 " Update:           2022-27-8 02:43:02
-" Group:            telegram vim indonesia: t.me/VimID
+" Groups:           telegram vim indonesia: t.me/VimID
 " License:          Garsec
  
 "Copyright (c) 2020 GARSEC (Garuda Security)
@@ -946,7 +946,7 @@ if s:t_Co >= 8
   finish
 endif
 
-
+" comming soon for updates
 " if s:t_Co >= 0
 "   hi Normal term=NONE
 "   hi ColorColumn term=reverse
