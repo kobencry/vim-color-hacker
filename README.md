@@ -4,11 +4,10 @@ vim colors theme simple
 
 # c++
 ![](https://github.com/kobencry/vim-color-hacker/blob/main/image/cpp.png)
-![](https://github.com/kobencry/vim-color-hacker/tree/main/image/cpp.png)
 
 # java
-![](https://github.com/kobencry/vim/blob/main/java.png)
+![](https://github.com/kobencry/vim-color-hacker/blob/main/image/java.png)
 
 
 # python
-![](https://github.com/kobencry/vim/blob/main/python.png)
+![](https://github.com/kobencry/vim-color-hacker/blob/main/image/python.png)
