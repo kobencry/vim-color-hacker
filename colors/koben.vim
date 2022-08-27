@@ -9,179 +9,983 @@
 "==================================
 set background=dark
 hi clear
+let g:colors_name = "hello"
 
-if exists('syntax_on')
-  syntax reset
-  endif
+" opsi terminal
+"t_Co jumlah warna
+let s:t_Co = exists('&t_Co') && !empty(&t_Co) && &t_Co >= 0 ? &t_Co : -1
 
-  let g:colors_name = 'koben'
+if (has('termguicolors') && &termguicolors) || has('gui_running')
+  let g:terminal_ansi_colors = ['#000000', '#cd0000', '#00cd00', '#cdcd00', '#0000ee', '#cd00cd', '#00cdcd', '#e5e5e5', '#7f7f7f', '#ff0000', '#00ff00', '#ffff00', '#5c5cff', '#ff00ff', '#00ffff', '#ffffff']
+endif
 
-  hi Normal guifg=#ffffff ctermfg=NONE guibg=#000000 gui=NONE cterm=NONE
+" Misalnya, jika Anda bekerja di dalam terminal yang memiliki dukungan warna, 
+" Anda dapat menyertakan salah satu tombol sorot berikut:
+"  ctermfg (untuk mengatur latar depan)
+"  ctermbg (untuk mengatur latar belakang)
+"  cterm (untuk properti tambahan) italic, bold, underline, standout, reverse,  inverse, undercurl, NONE
+
+" Pengguna yang lebih menyukai GUI perlu menggunakan tombol sorot:
+"  guifg (untuk mengatur latar depan)
+"  guibg (untuk mengatur latar belakang)
+"  gui (untuk properti tambahan) italic, bold, underline, standout, reverse, inverse, undercurl, NONE
+
+" normal teks keadaan mode normal gvim
+hi Normal   guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
+
+hi! link Terminal Normal
+hi! link StatusLineTerm StatusLine
+hi! link StatusLineTermNC StatusLineNC
+hi! link Cursearch Search
+hi! link CursorLineFold CursorLine
+hi! link CursorLineSign CursorLine
+
+"konstanta boolean True False
+"hi Boolean guifg=#8700ff guibg=#000000 gui=NONE cterm=NONE
+
+"konstanta karakter 'c', '\n'
+"hi Character guifg=#87ff5f guibg=#000000 gui=NONE cterm=NONE
+hi Character guifg=#f54242 guibg=#000000 gui=NONE cterm=NONE
+
+"digunakan untuk kolom yang diatur dengan kolom warna
+hi ColorColumn guifg=NONE guibg=#4d4d4d gui=NONE cterm=NONE
+
+"komentar
+hi Comment guifg=#808080 guibg=NONE gui=NONE cterm=NONE
+
+"karakter placeholder menggantikan teks tersembunyi
+hi Conceal guifg=#ff00ff guibg=#ff00ff gui=NONE cterm=NONE
+
+"kodisi if, then, else, endif, switch, etc.
+"hi! Conditional NONE
+"hi Conditional  guifg=#00ffd7 guibg=NONE gui=NONE cterm=NONE
+
+"karakter di bawah kursor"kedap kedip"
+hi Cursor guifg=#ff00ff guibg=#00ffd7 gui=NONE cterm=NONE
+
+"kolom layar tempat kursor berada saat 'kolom kursor' disetel
+hi CursorColumn guifg=NONE guibg=#3a3a3a gui=NONE cterm=NONE
+
+"garis layar tempat kursor berada saat 'garis kursor' disetel
+hi CursorLine guifg=NONE guibg=#3a3a3a gui=NONE cterm=NONE
+hi CursorLineNr guifg=#ff0000 guibg=#3a3a3a gui=bold cterm=bold
+
+"seperti Kursor, tetapi digunakan saat dalam mode IME |CursorIM|
+hi CursorIM guifg=NONE guibg=fg gui=NONE cterm=NONE
+
+"nama direktori (dan nama khusus lainnya dalam daftar)
+hi Directory    guifg=#00ffd7 guibg=NONE gui=NONE cterm=NONE
+
+"setiap konstruksi yang salah
+hi Error    guifg=#ffffff guibg=#ff0000 gui=NONE cterm=NONE
+
+"pesan kesalahan pada baris perintah
+hi ErrorMsg guifg=#ffffff guibg=#cd0000 gui=NONE cterm=NONE
+
+"keyword exception 
+hi Exception    guifg=#8700ff guibg=NONE gui=NONE cterm=NONE
+
+"garis yang digunakan untuk lipatan tertutup
+hi Folded   guifg=#000000 guibg=#66ff66 gui=NONE cterm=NONE
+"garis yang digunakan untuk diff ketik :vert diffsplit [filename2]
+hi FoldColumn   guifg=#66ff66 guibg=#000000 gui=NONE cterm=NONE
+
+"konstanta float:2.5e10
+hi Float    guifg=#f54242 guibg=#000000 gui=bold cterm=bold
+
+"fungsi atau method
+hi Function guifg=#8700ff guibg=#000000 gui=NONE cterm=NONE
+
+"dibiarkan kosong, tersembunyi
+hi Ignore   guifg=#000000 guibg=#000000 gui=NONE cterm=NONE
+
+"Nomor baris untuk perintah ':number" dan ':#', dan kapan 'number'
+"atau opsi 'nomor relatif' disetel
+"ketik :number atau :#
+hi LineNr guifg=#ffffff guibg=#000000 gui=bold cterm=bold
+
+"Dimungkinkan untuk memberi kursor GUI warna lain saat pemetaan bahasa
+"sedang digunakan. Ini dinonaktifkan secara default, untuk menghindari kursor menjadi
+"tidak terlihat saat Anda menggunakan warna latar non-standar
+hi lCursor  guifg=#000000 guibg=#ffffff gui=NONE cterm=NONE
+
+" '~' dan '@' di akhir jendela, karakter dari
+" 'showbreak' dan karakter lain yang sebenarnya tidak ada dalam teks 
+" (mis., '>' ditampilkan saat karakter lebar ganda tidak pas di akhir baris).
+hi NonText  guifg=#00ffd7 guibg=NONE gui=bold cterm=bold
+
+"konstanta angka: 234, 0xff
+hi Number   guifg=#f54242 guibg=#000000 gui=NONE cterm=NONE
+
+"Praprocessor #include #define #import #from
+hi PreProc guifg=#00ffd7 guibg=NONE gui=NONE cterm=NONE
+hi PreCondit    guifg=#00ffd7 guibg=NONE gui=NONE cterm=NONE
+
+"----- digantikan dengan fungsi hi Statemant ----
+"perulangan for, do, while, etc
+"hi Repeat   guifg=#00ffd7 guibg=NONE gui=NONE cterm=NONE
+
+"konstanta string: 'ini adalah string'
+hi String   guifg=#87ff5f guibg=#000000 gui=NONE cterm=NONE
+
+"pernyataan apapun if, then, else, endif, switch, for, try, etc
+hi Statement    guifg=#00ffd7 guibg=NONE gui=NONE cterm=NONE
+
+"setiap simbol khusus
+hi Special  guifg=#ff6600 guibg=NONE gui=NONE cterm=NONE
 
 
-  hi Boolean        guifg=#00ffd7 ctermfg=50  ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Character      guifg=#ff0000 ctermfg=196 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Comment        guifg=#585858 ctermfg=240 ctermbg=NONE gui=NONE cterm=NONE
-  hi Conditional    guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Constant       guifg=#5f00af ctermfg=55 ctermbg=NONE gui=NONE cterm=NONE
-  hi Cursor         guifg=#eeeeee ctermfg=15  ctermbg=247  gui=NONE guibg=#8DA1A1
-  hi CursorIM       guifg=#eeeeee ctermfg=15  ctermbg=247  gui=bold guibg=#8da1a1 cterm=NONE
-  hi Debug          guifg=#55747c ctermfg=66  ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Define         guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Delimiter      guifg=#00ffd7 ctermfg=50  ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Directory      guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE cterm=NONE
-  hi Exception      guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Float          guifg=#ff5f00 ctermfg=202 ctermbg=NONE gui=NONE cterm=NONE
-  hi Function       guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Identifier     guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE cterm=NONE
-  hi Ignore         guifg=#00ffd7 ctermfg=50
-  hi Include        guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Keyword        guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Label          guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Macro          guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi MatchParen     guifg=#df005f ctermfg=161 ctermbg=NONE gui=bold cterm=bold
-  hi NonText        guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=bold cterm=bold
-  hi Number         guifg=#ff5f00 ctermfg=202 ctermbg=NONE gui=NONE cterm=NONE
-  hi Operator       guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi PreCondit      guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi PreProc        guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE cterm=NONE
-  hi Question       guifg=#ff0000 ctermfg=196 ctermbg=NONE gui=bold guibg=bg cterm=NONE
-  hi Repeat         guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Scrollbar      guibg=bg
-  hi Special        guifg=#ff0000 ctermfg=196 ctermbg=NONE gui=NONE cterm=NONE
-  hi SpecialChar    guifg=#ff0000 ctermfg=196  ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi SpecialComment guifg=#55747c ctermfg=66  ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi SpecialKey     guifg=#3a3a3a ctermfg=237 ctermbg=NONE gui=NONE cterm=NONE
-  hi Statement      guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE cterm=NONE
-  hi StorageClass   guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi String         guifg=#87ff5f ctermfg=119 ctermbg=NONE gui=NONE cterm=NONE
-  hi Structure      guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Tag            guifg=#55747c ctermfg=66  ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Title          guifg=#9d7ff2 ctermfg=141 ctermbg=NONE gui=bold guibg=bg cterm=NONE
-  hi Todo           guifg=#ffdfaf ctermfg=223 ctermbg=NONE gui=NONE cterm=NONE guibg=bg
-  hi Type           guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE cterm=NONE
-  hi Typedef        guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE guibg=bg cterm=NONE
-  hi Underlined     guifg=#c98de6 ctermfg=192 ctermbg=NONE gui=underline guibg=bg cterm=NONE
-  hi VertSplit      guifg=#3a3a3a ctermfg=237 guibg=#3a3a3a ctermbg=237 gui=NONE cterm=NONE
-  hi WildMenu       guifg=#101010 ctermfg=0   guibg=#f6da7b ctermbg=222 gui=bold cterm=NONE
+"hi SpecialChar guifg=#87ff5f guibg=#000000 gui=NONE cterm=NONE
+
+"int, long, char, etc
+hi Type     guifg=#00ffd7 guibg=NONE gui=NONE cterm=NONE
+
+"apa pun yang membutuhkan perhatian ekstra; kebanyakan kata kunci TODO FIXME dan XXX
+hi Todo     guifg=#000000 guibg=#c0c000 gui=NONE cterm=NONE
+
+"judul untuk output dari ':set all', ':autocmd' dll.
+hi Title    guifg=#ffffff guibg=NONE gui=NONE cterm=NONE
+
+"teks yang menonjol, tautan/link HTML
+hi Underlined   guifg=#ff00ff guibg=NONE gui=underline cterm=underline
+
+"Penyorotan pola pencarian terakhir digunakan untuk menyorot baris saat ini 
+"di jendela perbaikan cepat dan item serupa yang perlu menonjol.
+hi Search guifg=#000000 guibg=#c0c000 gui=NONE cterm=NONE
+hi IncSearch guifg=#ffffff guibg=NONE gui=reverse cterm=reverse
+
+"kolom di mana |sign| ditampilkan
+hi SignColumn   guifg=#00ffd7 guibg=#a9a9a9 gui=NONE cterm=NONE   
+
+"mode selection
+"hi Visual   guifg=#cc0000 guibg=#000000 gui=standout cterm=standout
+hi Visual   guifg=#f54242 guibg=#000000 gui=standout cterm=standout
+
+"Pemilihan mode visual saat vim adalah 'Tidak Memiliki Pilihan'. 
+"Hanya X11 Gui |gui-x11| dan |xterm-clipboard| mendukung ini.
+hi VisualNOS guifg=NONE guibg=#000000 gui=bold,underline cterm=underline
+
+"pesan peringatan
+hi WarningMsg guifg=#f54242 guibg=NONE gui=NONE cterm=NONE
+
+"above abo[veleft] Jalankan {cmd}. 
+"Jika berisi perintah yang membagi jendela, itu akan dibuka ke kiri 
+"(pemisahan vertikal) atau di atas (pemisahan horizontal) jendela saat ini. 
+"Mengabaikan 'splitbelow' dan 'splitright'.
+"Tidak berfungsi untuk mode |:execute| dan |:normal|.
+hi! link LineNrAbove LineNr
+"below bel[owright] Jalankan {cmd}.
+"Jika berisi perintah yang membagi jendela, itu akan dibuka ke kanan 
+"(pemisahan vertikal) atau di bawah (pemisahan horizontal) jendela saat ini. 
+"Mengabaikan 'splitbelow' dan 'splitright'.
+"Tidak berfungsi untuk |:execute| dan |:normal|.
+hi! link LineNrBelow LineNr
+
+"Karakter di bawah kursor atau tepat sebelum itu, jika itu adalah braket berpasangan,
+"dan kecocokannya. |pi_paren.txt|
+hi MatchParen guifg=NONE guibg=#ff0000 gui=NONE cterm=NONE
+
+"'showmode' message (e.g., '-- INSERT --', '-- VISUAL --')
+hi ModeMsg guifg=#000000 guibg=#66ff66 gui=bold ctermfg=NONE ctermbg=NONE cterm=bold
+
+"'more-prompt contoh ketik :autocmd (e.g., -- MORE -- etc.)
+hi MoreMsg guifg=#000000 guibg=#66ff66 gui=bold cterm=bold
+hi Question guifg=#00ff00 guibg=NONE gui=bold cterm=bold
+
+"Meta dan kunci khusus yang terdaftar dengan ':map', juga untuk teks yang 
+"digunakan untuk menampilkan karakter yang tidak dapat dicetak dalam teks, 'listchars'.
+"Umumnya :text yang ditampilkan berbeda dari aslinya
+hi SpecialKey guifg=#00ffd7 guibg=NONE gui=NONE cterm=NONE
+
+"kecocokan saat ini dalam penyelesaian wildmenu
+hi WildMenu guifg=#000000 guibg=#00ffd7 gui=NONE cterm=NONE
+hi QuickFixLine guifg=#000000 guibg=#00cdcd gui=NONE cterm=NONE
+
+"Kata yang tidak dikenali oleh pemeriksa ejaan. |spell|
+"Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+hi SpellBad guifg=#ff0000 guibg=NONE guisp=#ff0000 gui=undercurl cterm=underline
+
+"Kata yang harus dimulai dengan huruf kapital. |spell|
+"Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+hi SpellCap guifg=#00ffd7 guibg=NONE guisp=#00ffd7 gui=undercurl cterm=underline
+
+"Kata yang dikenali oleh pemeriksa ejaan sebagai kata yang digunakan di wilayah lain.
+"|spell| Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+hi SpellLocal guifg=#ff00ff guibg=NONE guisp=#ff00ff gui=undercurl cterm=underline
+
+"Kata yang dikenali oleh pemeriksa ejaan sebagai kata yang hampir tidak pernah digunakan. 
+"|spell| Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+hi SpellRare guifg=#00ffd7 guibg=NONE guisp=#00ffd7 gui=undercurl cterm=underline
+
+"baris status jendela saat ini
+"contoh ketik:split [file_nama]
+hi StatusLine guifg=#ffffff guibg=#0000ff gui=NONE cterm=NONE
+
+"baris status jendela yang tidak aktif 
+"Catatan : jika ini sama dengan 'StatusLine' Vim akan menggunakan '^^^' 
+"di baris status jendela saat ini.
+hi StatusLineNC guifg=#ffff00 guibg=#000080 gui=NONE cterm=NONE
+
+"kolom yang memisahkan jendela yang terbelah secara vertikal
+hi VertSplit guifg=#000000 guibg=#0000ee gui=NONE cterm=NONE
+
+"baris halaman tab, bukan label halaman tab aktif
+hi TabLine guifg=#ffffff guibg=#000000 gui=standout cterm=standout
+
+"baris halaman tab, di mana tidak ada label
+hi TabLineFill guifg=NONE guibg=#000000 gui=reverse cterm=reverse
+
+"baris halaman tab, label halaman tab aktif
+hi TabLineSel guifg=#ffffff guibg=#000000 gui=bold cterm=bold
+"bagian dari gui tool bar
+hi ToolbarLine guifg=NONE guibg=#000000 gui=NONE cterm=NONE
+hi ToolbarButton guifg=#000000 guibg=#e5e5e5 gui=bold cterm=bold
+hi Pmenu guifg=fg guibg=#303030 gui=NONE cterm=NONE
+hi PmenuSbar guifg=NONE guibg=NONE gui=NONE cterm=NONE
+hi PmenuSel guifg=#000000 guibg=#e5e5e5 gui=NONE cterm=NONE
+hi PmenuThumb guifg=NONE guibg=#ffffff gui=NONE cterm=NONE
+
+"mode diff ketik :vert diffsplit file1.txt file2.txt
+"menambah baris teks
+hi DiffAdd guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
+"mengubah baris teks
+hi DiffChange guifg=#9900cc guibg=#000000 gui=NONE cterm=NONE
+"mengubah teks dalam baris yang diubah
+hi DiffText guifg=#00ffd7 guibg=#000000 gui=NONE cterm=NONE
+"menghapus baris teks
+hi DiffDelete guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
+
+"----------- vim color terminal --------------
+"color base 256
+if s:t_Co >= 256
+  hi Normal ctermfg=231 ctermbg=16 cterm=NONE
   
-  "===================
-  " Cursor lines
-  "===================
-  hi CursorColumn ctermfg=NONE guibg=#303030 ctermbg=236 gui=NONE cterm=NONE
-  hi CursorLine   ctermfg=NONE guibg=#303030 ctermbg=236 gui=NONE cterm=NONE
-  
-  "==================
-  " Tabline
-  "==================
-  hi TabLine     guifg=#808080 ctermfg=244 guibg=#303030 ctermbg=236 gui=NONE cterm=NONE
-  hi TabLineFill guifg=#dfdfaf ctermfg=187 guibg=#303030 ctermbg=236 gui=NONE cterm=NONE
-  hi TabLineSel  guifg=#e4e4e4 ctermfg=254 guibg=#303030 ctermbg=236 gui=bold cterm=bold
+  hi! link Terminal Normal
+  hi! link StatusLineTerm StatusLine
+  hi! link StatusLineTermNC StatusLineNC
+  hi! link CurSearch Search
+  hi! link CursorLineFold CursorLine
+  hi! link CursorLineSign CursorLine
 
-  "=================
-  " Statusline
-  "=================
-  hi StatusLine   guifg=#e4e4e4 ctermfg=254 guibg=#3a3a3a ctermbg=237 gui=NONE cterm=NONE
-  hi StatusLineNC guifg=#808080 ctermfg=244 guibg=#3a3a3a ctermbg=237 gui=NONE cterm=NONE
+  "konstanta karakter 'c'
+  hi Character ctermfg=196 ctermbg=16 cterm=NONE
   
-  "=================
-  " Number column
-  "=================
-  hi CursorLineNr guifg=#878787 ctermfg=102 guibg=#3a3a3a ctermbg=237 gui=NONE cterm=NONE
-  hi LineNr       guifg=#878787 ctermfg=102 guibg=#3a3a3a ctermbg=237 gui=NONE cterm=NONE
-  
-  "==================
-  " Color column
-  "==================
-  hi ColorColumn ctermfg=NONE guibg=#3a3a3a ctermbg=237 gui=NONE cterm=NONE
-  
-  "==================
-  " Diff & Signs
-  "==================
-  "hi DiffAdd    guifg=#87ff5f ctermfg=119 ctermbg=NONE gui=NONE cterm=NONE
-  hi DiffAdd    guifg=#00ffd7 ctermfg=50 ctermbg=NONE gui=NONE cterm=NONE
-  hi DiffChange guifg=#ffff5f ctermfg=227 ctermbg=NONE gui=NONE cterm=NONE
-  hi DiffDelete guifg=#df5f5f ctermfg=167 ctermbg=NONE gui=NONE cterm=NONE
-  hi DiffText   guifg=#ff5f5f ctermfg=203 guibg=#5f0000 ctermbg=52 gui=bold cterm=bold
-  hi SignColumn ctermfg=NONE guibg=#3a3a3a ctermbg=237 gui=NONE cterm=NONE
-  
-  "===================
-  " Folds
-  "===================
-  hi FoldColumn ctermfg=102 ctermbg=237 cterm=NONE guifg=#878787 guibg=#3a3a3a gui=NONE
-  hi Folded     ctermfg=102 ctermbg=237 cterm=NONE guifg=#878787 guibg=#3a3a3a gui=NONE
-  
-  "===================
-  " Search
-  "===================
-  hi IncSearch guifg=#c0c0c0 ctermfg=7 guibg=#005fff ctermbg=27  gui=NONE cterm=NONE
-  hi Search    guifg=#c0c0c0 ctermfg=7 guibg=#df005f ctermbg=161 gui=NONE cterm=NONE
-  
-  "===================
-  " Messages
-  "===================
-  hi Error      guifg=#eeeeee ctermfg=255 guibg=#df005f ctermbg=161  gui=NONE cterm=NONE
-  hi ErrorMsg   guifg=#eeeeee ctermfg=255 guibg=#df005f ctermbg=161  gui=NONE cterm=NONE
-  hi ModeMsg    guifg=#afff87 ctermfg=156               ctermbg=NONE gui=bold cterm=bold
-  hi MoreMsg    guifg=#c0c0c0 ctermfg=7   guibg=#005fdf ctermbg=26   gui=NONE cterm=NONE
-  hi WarningMsg guifg=#c0c0c0 ctermfg=7   guibg=#005fdf ctermbg=26   gui=NONE cterm=NONE
-  
-  "==================
-  " Visual
-  "==================
-  hi Visual    guifg=#c0c0c0 ctermfg=7 guibg=#005f87 ctermbg=24 gui=reverse cterm=NONE
-  hi VisualNOS guifg=#c0c0c0 ctermfg=7 guibg=#5f5f87 ctermbg=60 gui=reverse cterm=NONE
+  "digunakan untuk kolom yang diatur dengan kolom warna
+  hi ColorColumn ctermfg=NONE ctermbg=239 cterm=NONE
 
-  "=================
-  " Pmenu
-  "=================
-  hi Pmenu      guifg=#e4e4e4 ctermfg=254 guibg=#262626 ctermbg=235 gui=NONE cterm=NONE
-  hi PmenuSbar  ctermfg=NONE guibg=#444444 ctermbg=238 gui=NONE cterm=NONE
-  hi PmenuSel   guifg=#df5f5f ctermfg=167 guibg=#444444 ctermbg=238 gui=bold cterm=bold
-  hi PmenuThumb ctermfg=NONE guibg=#df5f5f ctermbg=167 gui=NONE cterm=NONE
+  "komentar
+  hi Comment ctermfg=246 ctermbg=NONE cterm=NONE
+ 
+  "karakter placeholder menggantikan teks tersembunyi
+  hi Conceal ctermfg=200 ctermbg=200 cterm=NONE
 
-  "==================
-  " Spell
-  "==================
-  hi SpellBad   guifg=#c0c0c0 ctermfg=7 guibg=#df5f5f ctermbg=167 gui=NONE cterm=NONE
-  hi SpellCap   guifg=#c0c0c0 ctermfg=7 guibg=#005fdf ctermbg=26  gui=NONE cterm=NONE
-  hi SpellLocal guifg=#c0c0c0 ctermfg=7 guibg=#8700af ctermbg=91  gui=NONE cterm=NONE
-  hi SpellRare  guifg=#c0c0c0 ctermfg=7 guibg=#00875f ctermbg=29  gui=NONE cterm=NONE
+  "karakter di bawah kursor"kedap kedip"
+  hi Cursor ctermfg=16 ctermbg=50 cterm=NONE
 
-  "==================
-  " Quickfix
-  "==================
-  hi qfLineNr    ctermfg=238 ctermbg=NONE cterm=NONE guifg=#444444 guibg=NONE gui=NONE
-  hi qfSeparator ctermfg=243 ctermbg=NONE cterm=NONE guifg=#767676 guibg=NONE gui=NONE
+  "kolom layar tempat kursor berada saat 'kolom kursor' disetel
+  hi CursorColumn ctermfg=NONE ctermbg=236 cterm=NONE
 
-  " Plugin: vim-easymotion
-  hi EasyMotionTarget        guifg=#ffff5f ctermfg=227 ctermbg=NONE gui=bold cterm=bold
-  hi EasyMotionTarget2First  guifg=#df005f ctermfg=161 ctermbg=NONE gui=NONE cterm=NONE
-  hi EasyMotionTarget2Second guifg=#ffff5f ctermfg=227 ctermbg=NONE gui=NONE cterm=NONE
+  "garis layar tempat kursor berada saat 'garis kursor' disetel
+  hi CursorLine ctermfg=NONE ctermbg=236 cterm=underline
+  hi CursorLineNr ctermfg=226 ctermbg=236 cterm=bold
 
-  " Plugin: vim-signify
-  hi SignifySignAdd    guifg=#87ff5f ctermfg=119 guibg=#3a3a3a ctermbg=237 gui=bold cterm=bold
-  hi SignifySignChange guifg=#ffff5f ctermfg=227 guibg=#3a3a3a ctermbg=237 gui=bold cterm=bold
-  hi SignifySignDelete guifg=#df5f5f ctermfg=167 guibg=#3a3a3a ctermbg=237 gui=bold cterm=bold
+  "seperti Kursor, tetapi digunakan saat dalam mode IME |CursorIM|
+  hi CursorIM ctermfg=NONE ctermbg=fg cterm=NONE
 
-  " Plugin: vim-startify
-  hi StartifyBracket guifg=#585858 ctermfg=240 ctermbg=NONE gui=NONE cterm=NONE
-  hi StartifyFile    guifg=#eeeeee ctermfg=255 ctermbg=NONE gui=NONE cterm=NONE
-  hi StartifyFooter  guifg=#585858 ctermfg=240 ctermbg=NONE gui=NONE cterm=NONE
-  hi StartifyHeader  guifg=#87df87 ctermfg=114 ctermbg=NONE gui=NONE cterm=NONE
-  hi StartifyNumber  guifg=#ffaf5f ctermfg=215 ctermbg=NONE gui=NONE cterm=NONE
-  hi StartifyPath    guifg=#8a8a8a ctermfg=245 ctermbg=NONE gui=NONE cterm=NONE
-  hi StartifySection guifg=#dfafaf ctermfg=181 ctermbg=NONE gui=NONE cterm=NONE
-  hi StartifySelect  guifg=#5fdfff ctermfg=81  ctermbg=NONE gui=NONE cterm=NONE
-  hi StartifySlash   guifg=#585858 ctermfg=240 ctermbg=NONE gui=NONE cterm=NONE
-  hi StartifySpecial guifg=#585858 ctermfg=240 ctermbg=NONE gui=NONE cterm=NONE
+  "nama direktori (dan nama khusus lainnya dalam daftar)
+  hi Directory ctermfg=50 ctermbg=NONE cterm=NONE
+
+  hi EndOfBuffer ctermfg=50 ctermbg=NONE cterm=bold
+
+  "setiap konstruksi yang salah
+  hi Error    ctermfg=255 ctermbg=196 cterm=NONE
+
+  "pesan kesalahan pada baris perintah
+  hi ErrorMsg ctermfg=255 ctermbg=196 cterm=NONE
+
+  "keyword exception 
+  hi Exception ctermfg=93 ctermbg=NONE cterm=NONE
+
+  "garis yang digunakan untuk lipatan tertutup
+  hi Folded ctermfg=16 ctermbg=82 cterm=NONE
+  hi FoldColumn ctermfg=82 ctermbg=16 cterm=NONE
+
+  "konstanta float:2.5e10
+  hi Float ctermfg=196 ctermbg=16 cterm=bold
+
+  "fungsi atau method
+  hi Function ctermfg=93 ctermbg=NONE cterm=NONE
+
+  "dibiarkan kosong, tersembunyi
+  hi Ignore ctermfg=16 ctermbg=16 cterm=NONE
+
+  "Nomor baris untuk perintah ':number" dan ':#', dan kapan 'number'
+  "atau opsi 'nomor relatif' disetel
+  "ketik :number atau :#
+  hi LineNr ctermfg=255 ctermbg=16 cterm=bold
+
+  "Dimungkinkan untuk memberi kursor GUI warna lain saat pemetaan bahasa
+  "sedang digunakan. Ini dinonaktifkan secara default, untuk menghindari kursor menjadi
+  "tidak terlihat saat Anda menggunakan warna latar non-standar
+  hi lCursor  ctermfg=16 ctermbg=255 cterm=NONE
+
+  " '~' dan '@' di akhir jendela, karakter dari
+  " 'showbreak' dan karakter lain yang sebenarnya tidak ada dalam teks 
+  " (mis., '>' ditampilkan saat karakter lebar ganda tidak pas di akhir baris).
+  hi NonText ctermfg=50 ctermbg=NONE cterm=bold
+
+  "konstanta angka: 234, 0xff
+  hi Number ctermfg=196 ctermbg=16 cterm=NONE
+
+  "Praprocessor #include #define #import #from
+  hi PreProc ctermfg=50 ctermbg=NONE cterm=NONE
+  hi PreCondit ctermfg=50 ctermbg=NONE cterm=NONE
+
+  "konstanta string: 'ini adalah string'
+  hi String ctermfg=119 ctermbg=16 cterm=NONE
+
+  "pernyataan apapun if, then, else, endif, switch, for, try, etc
+  hi Statement ctermfg=50 ctermbg=NONE cterm=NONE
+
+  "setiap simbol khusus
+  hi Special  ctermfg=202 ctermbg=NONE cterm=NONE
+
+  "int, long, char, etc
+  hi Type ctermfg=50 ctermbg=NONE cterm=NONE
+
+  "apa pun yang membutuhkan perhatian ekstra; kebanyakan kata kunci TODO FIXME dan XXX
+  hi Todo ctermfg=16 ctermbg=226 cterm=NONE
+
+  "judul untuk output dari ':set all', ':autocmd' dll.
+  hi Title ctermfg=46 ctermbg=NONE cterm=NONE
+
+  "teks yang menonjol, tautan/link HTML
+  hi Underlined ctermfg=200 ctermbg=NONE cterm=underline
+
+  "Penyorotan pola pencarian terakhir digunakan untuk menyorot baris saat ini 
+  "di jendela perbaikan cepat dan item serupa yang perlu menonjol.
+  hi Search ctermfg=16 ctermbg=226cterm=NONE
+  hi IncSearch ctermfg=255 ctermbg=NONE cterm=reverse
+
+  "kolom di mana |sign| ditampilkan
+  hi SignColumn ctermfg=50 ctermbg=12 cterm=NONE   
+
+  "mode selection
+  hi Visual ctermfg=16 ctermbg=196 cterm=bold
+  "Pemilihan mode visual saat vim adalah 'Tidak Memiliki Pilihan'. 
+  "Hanya X11 Gui |gui-x11| dan |xterm-clipboard| mendukung ini.
+  hi VisualNOS ctermfg=NONE ctermbg=16 cterm=underline
+
+  "pesan peringatan
+  hi WarningMsg ctermfg=196 ctermbg=NONE cterm=NONE
+
+  "above abo[veleft] Jalankan {cmd}. 
+  "Jika berisi perintah yang membagi jendela, itu akan dibuka ke kiri 
+  "(pemisahan vertikal) atau di atas (pemisahan horizontal) jendela saat ini. 
+  "Mengabaikan 'splitbelow' dan 'splitright'.
+  "Tidak berfungsi untuk mode |:execute| dan |:normal|.
+  hi! link LineNrAbove LineNr
+  "below bel[owright] Jalankan {cmd}.
+  "Jika berisi perintah yang membagi jendela, itu akan dibuka ke kanan 
+  "(pemisahan vertikal) atau di bawah (pemisahan horizontal) jendela saat ini. 
+  "Mengabaikan 'splitbelow' dan 'splitright'.
+  "Tidak berfungsi untuk |:execute| dan |:normal|.
+  hi! link LineNrBelow LineNr
+
+  "Karakter di bawah kursor atau tepat sebelum itu, jika itu adalah braket berpasangan,
+  "dan kecocokannya. |pi_paren.txt|
+  hi MatchParen ctermfg=NONE ctermbg=196 cterm=NONE
+
+  "'showmode' message (e.g., '-- INSERT --', '-- VISUAL --')
+  hi ModeMsg ctermfg=16 ctermbg=82 cterm=bold
+
+  "'more-prompt contoh ketik :autocmd (e.g., -- MORE -- etc.)
+  hi MoreMsg ctermfg=16 ctermbg=82 cterm=bold
+  hi Question ctermfg=16 ctermbg=82 cterm=bold
+
+  "Meta dan kunci khusus yang terdaftar dengan ':map', juga untuk teks yang 
+  "digunakan untuk menampilkan karakter yang tidak dapat dicetak dalam teks, 'listchars'.
+  "Umumnya :text yang ditampilkan berbeda dari aslinya
+  hi SpecialKey ctermfg=50 ctermbg=NONE cterm=NONE
+
+  "kecocokan saat ini dalam penyelesaian wildmenu
+  hi WildMenu ctermfg=16 ctermbg=50 cterm=NONE
+  hi QuickFixLine ctermfg=16 ctermbg=50 cterm=NONE
+
+  "Kata yang tidak dikenali oleh pemeriksa ejaan. |spell|
+  "Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+  hi SpellBad ctermfg=196 ctermbg=NONE cterm=underline
+
+  "Kata yang harus dimulai dengan huruf kapital. |spell|
+  "Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+  hi SpellCap ctermfg=50 ctermbg=NONE cterm=underline
+
+  "Kata yang dikenali oleh pemeriksa ejaan sebagai kata yang digunakan di wilayah lain.
+  "|spell| Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+  hi SpellLocal ctermfg=201 ctermbg=NONE cterm=underline
+
+  "Kata yang dikenali oleh pemeriksa ejaan sebagai kata yang hampir tidak pernah digunakan. 
+  "|spell| Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+  hi SpellRare ctermfg=50 ctermbg=NONE cterm=underline
+
+  "baris status jendela saat ini
+  "contoh ketik:split [file_nama]
+  hi StatusLine ctermfg=255 ctermbg=20 cterm=bold
+
+  "baris status jendela yang tidak aktif 
+  "Catatan : jika ini sama dengan 'StatusLine' Vim akan menggunakan '^^^' 
+  "di baris status jendela saat ini.
+  hi StatusLineNC ctermfg=220 ctermbg=17 cterm=NONE
+
+  "kolom yang memisahkan jendela yang terbelah secara vertikal
+  hi VertSplit ctermfg=16 ctermbg=231 cterm=NONE
+
+  "baris halaman tab, bukan label halaman tab aktif
+  hi TabLine ctermfg=231 ctermbg=16 cterm=standout
+
+  "baris halaman tab, di mana tidak ada label
+  hi TabLineFill ctermfg=NONE ctermbg=16 cterm=reverse
+
+  "baris halaman tab, label halaman tab aktif
+  hi TabLineSel ctermfg=255 ctermbg=16 cterm=bold
+
+  hi ToolbarLine ctermfg=NONE ctermbg=16 cterm=NONE
+  hi ToolbarButton ctermfg=16 ctermbg=255 cterm=bold
+  hi Pmenu ctermfg=fg ctermbg=236 cterm=NONE
+  hi PmenuSbar ctermfg=NONE ctermbg=NONE cterm=NONE
+  hi PmenuSel ctermfg=16 ctermbg=255 cterm=NONE
+  hi PmenuThumb ctermfg=NONE ctermbg=155 cterm=NONE
+
+  "mode diff ketik :vert diffsplit file1.txt file2.txt
+  "menambah baris teks
+  hi DiffAdd ctermfg=231 ctermbg=16 cterm=NONE
+  "mengubah baris teks
+  hi DiffChange ctermfg=93 ctermbg=16 cterm=NONE
+  "mengubah teks dalam baris yang diubah
+  hi DiffText ctermfg=51 ctermbg=16 cterm=NONE
+  "menghapus baris teks
+  hi DiffDelete ctermfg=255 ctermbg=16 cterm=NONE
+
+  unlet s:t_Co
+  finish
+endif
+
+"------------ vim color terminal ----------------
+"color base 16
+if s:t_Co >= 16
+  hi Normal ctermfg=white ctermbg=black cterm=NONE
   
-  "===============
-  " Neovim
-  "===============
-  if has('nvim')
-    hi EndOfBuffer  ctermfg=235  guifg=#262626 ctermbg=NONE gui=NONE cterm=NONE
-      "hi TermCursor   ctermfg=NONE guibg=#ff00af ctermbg=199 gui=NONE cterm=NONE
-      hi TermCursor ctermfg=NONE guibg=#ff00af ctermbg=199 gui=NONE cterm=NONE
-        hi TermCursorNC ctermfg=NONE ctermbg=NONE gui=NONE cterm=NONE
-        endif
+  hi! link Terminal Normal
+  hi! link StatusLineTerm StatusLine
+  hi! link StatusLineTermNC StatusLineNC
+  hi! link CurSearch Search
+  hi! link CursorLineFold CursorLine
+  hi! link CursorLineSign CursorLine
+
+  "konstanta karakter 'c'
+  hi Character ctermfg=red ctermbg=black cterm=NONE
+  
+  "digunakan untuk kolom yang diatur dengan kolom warna
+  hi ColorColumn ctermfg=NONE ctermbg=grey cterm=NONE
+
+  "komentar
+  hi Comment ctermfg=grey ctermbg=NONE cterm=NONE
+  
+  "karakter placeholder menggantikan teks tersembunyi
+  hi Conceal ctermfg=grey ctermbg=grey cterm=NONE 
+  
+  "karakter di bawah kursor"kedap kedip"
+  hi Cursor ctermfg=black ctermbg=cyan cterm=NONE
+  
+  "kolom layar tempat kursor berada saat 'kolom kursor' disetel
+  hi CursorColumn ctermfg=NONE ctermbg=NONE cterm=underline
+  
+  "garis layar tempat kursor berada saat 'garis kursor' disetel
+  hi CursorLine ctermfg=NONE ctermbg=NONE cterm=underline
+  hi CursorLineNr ctermfg=red ctermbg=NONE cterm=underline
+  
+  "seperti Kursor, tetapi digunakan saat dalam mode IME |CursorIM|
+  hi CursorIM ctermfg=NONE ctermbg=fg cterm=NONE
+  
+  "nama direktori (dan nama khusus lainnya dalam daftar)
+  hi Directory ctermfg=cyan ctermbg=NONE cterm=NONE
+  
+  "setiap konstruksi yang salah
+  hi Error ctermfg=white ctermbg=red cterm=NONE
+  
+  "pesan kesalahan pada baris perintah
+  hi ErrorMsg ctermfg=white ctermbg=red cterm=NONE
+  
+  "keyword exception 
+  hi Exception ctermfg=darkcyan ctermbg=NONE gui=NONE cterm=NONE
+  
+  "garis yang digunakan untuk lipatan tertutup
+  hi Folded ctermfg=green ctermbg=NONE cterm=NONE
+  "garis yang digunakan untuk diff ketik :vert diffsplit [filename2]
+  hi FoldColumn ctermfg=NONE ctermbg=NONE cterm=NONE
+  
+  "konstanta float:2.5e10
+  hi Float ctermfg=red ctermbg=black cterm=NONE
+  
+  "fungsi atau method
+  hi Function ctermfg=darkcyan ctermbg=black cterm=NONE
+  
+  "dibiarkan kosong, tersembunyi
+  hi Ignore ctermfg=black ctermbg=black cterm=NONE
+  
+  "Nomor baris untuk perintah ':number" dan ':#', dan kapan 'number'
+  "atau opsi 'nomor relatif' disetel
+  "ketik :number atau :#
+  hi LineNr ctermfg=white ctermbg=black cterm=bold
+  
+  "Dimungkinkan untuk memberi kursor GUI warna lain saat pemetaan bahasa
+  "sedang digunakan. Ini dinonaktifkan secara default, untuk menghindari kursor menjadi
+  "tidak terlihat saat Anda menggunakan warna latar non-standar
+  hi lCursor ctermfg=black ctermbg=white cterm=NONE
+  
+  " '~' dan '@' di akhir jendela, karakter dari
+  " 'showbreak' dan karakter lain yang sebenarnya tidak ada dalam teks 
+  " (mis., '>' ditampilkan saat karakter lebar ganda tidak pas di akhir baris).
+  hi NonText ctermfg=cyan ctermbg=NONE cterm=bold
+  
+  "konstanta angka: 234, 0xff
+  hi Number ctermfg=red ctermbg=black cterm=NONE
+  
+  "Praprocessor #include #define #import #from
+  hi PreProc ctermfg=cyan ctermbg=NONE cterm=NONE
+  hi PreCondit ctermfg=cyan ctermbg=NONE cterm=NONE
+  
+  "----- digantikan dengan fungsi hi Statemant ----
+  "perulangan for, do, while, etc
+  "hi Repeat   guifg=#00ffd7 guibg=NONE gui=NONE cterm=NONE
+  
+  "konstanta string: 'ini adalah string'
+  hi String ctermfg=green ctermbg=black cterm=NONE
+  
+  "pernyataan apapun if, then, else, endif, switch, for, try, etc
+  hi Statement ctermfg=cyan ctermbg=NONE cterm=NONE
+  
+  "setiap simbol khusus
+  hi Special ctermfg=darkcyan ctermbg=NONE cterm=NONE
+
+  "teks yang digunakan untuk menampilkan karakter yang tidak
+  "dapat dicetak dalam teks
+  hi SpecialKey ctermfg=cyan ctermbg=NONE cterm=NONE
+  
+  "int, long, char, etc
+  hi Type ctermfg=cyan ctermbg=NONE cterm=NONE
+  
+  "apa pun yang membutuhkan perhatian ekstra; kebanyakan kata kunci TODO FIXME dan XXX
+  hi Todo ctermfg=black ctermbg=yellow cterm=NONE
+  
+  "judul untuk output dari ':set all', ':autocmd' dll.
+  hi Title ctermfg=white ctermbg=NONE cterm=NONE
+  
+  "teks yang menonjol, tautan/link HTML
+  hi Underlined ctermfg=magenta ctermbg=NONE cterm=underline
+  
+  "Penyorotan pola pencarian terakhir digunakan untuk menyorot baris saat ini 
+  "di jendela perbaikan cepat dan item serupa yang perlu menonjol.
+  hi Search ctermfg=black ctermbg=darkyellow cterm=NONE
+  hi IncSearch ctermfg=white ctermbg=NONE cterm=reverse
+  
+  "kolom di mana |sign| ditampilkan
+  hi SignColumn ctermfg=cyan ctermbg=grey cterm=NONE   
+  
+  "mode selection
+  hi Visual ctermfg=darkred ctermbg=black cterm=standout
+  "hi Visual   guifg=#f54242 guibg=#000000 gui=standout cterm=standout
+  
+  "Pemilihan mode visual saat vim adalah 'Tidak Memiliki Pilihan'. 
+  "Hanya X11 Gui |gui-x11| dan |xterm-clipboard| mendukung ini.
+  hi VisualNOS ctermfg=NONE ctermbg=black cterm=underline
+  
+  "pesan peringatan
+  hi WarningMsg ctermfg=darkred ctermbg=NONE cterm=NONE
+  
+  "above abo[veleft] Jalankan {cmd}. 
+  "Jika berisi perintah yang membagi jendela, itu akan dibuka ke kiri 
+  "(pemisahan vertikal) atau di atas (pemisahan horizontal) jendela saat ini. 
+  "Mengabaikan 'splitbelow' dan 'splitright'.
+  "Tidak berfungsi untuk mode |:execute| dan |:normal|.
+  hi! link LineNrAbove LineNr
+  "below bel[owright] Jalankan {cmd}.
+  "Jika berisi perintah yang membagi jendela, itu akan dibuka ke kanan 
+  "(pemisahan vertikal) atau di bawah (pemisahan horizontal) jendela saat ini. 
+  "Mengabaikan 'splitbelow' dan 'splitright'.
+  "Tidak berfungsi untuk |:execute| dan |:normal|.
+  hi! link LineNrBelow LineNr
+  
+  "Karakter di bawah kursor atau tepat sebelum itu, jika itu adalah braket berpasangan,
+  "dan kecocokannya. |pi_paren.txt|
+  hi MatchParen ctermfg=NONE ctermbg=red cterm=NONE
+  
+  "'showmode' message (e.g., '-- INSERT --', '-- VISUAL --')
+  hi ModeMsg ctermfg=black ctermbg=darkcyan cterm=bold
+  
+  "'more-prompt contoh ketik :autocmd (e.g., -- MORE -- etc.)
+  hi MoreMsg ctermfg=black ctermbg=darkcyan cterm=bold
+  "hi Question guifg=#00ff00 guibg=NONE gui=bold cterm=bold
+  
+  "Meta dan kunci khusus yang terdaftar dengan ':map', juga untuk teks yang 
+  "digunakan untuk menampilkan karakter yang tidak dapat dicetak dalam teks, 'listchars'.
+  "Umumnya :text yang ditampilkan berbeda dari aslinya
+  hi SpecialKey ctermfg=cyan ctermbg=NONE cterm=NONE
+  
+  "kecocokan saat ini dalam penyelesaian wildmenu
+  hi WildMenu ctermfg=black ctermbg=cyan cterm=NONE
+  hi QuickFixLine ctermfg=black ctermbg=darkcyan cterm=NONE
+  
+  "Kata yang tidak dikenali oleh pemeriksa ejaan. |spell|
+  "Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+  "hi SpellBad guifg=#ff0000 guibg=NONE guisp=#ff0000 gui=undercurl cterm=underline
+  
+  "Kata yang harus dimulai dengan huruf kapital. |spell|
+  "Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+  "hi SpellCap guifg=#00ffd7 guibg=NONE guisp=#00ffd7 gui=undercurl cterm=underline
+  
+  "Kata yang dikenali oleh pemeriksa ejaan sebagai kata yang digunakan di wilayah lain.
+  "|spell| Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+  "hi SpellLocal guifg=#ff00ff guibg=NONE guisp=#ff00ff gui=undercurl cterm=underline
+  
+  "Kata yang dikenali oleh pemeriksa ejaan sebagai kata yang hampir tidak pernah digunakan. 
+  "|spell| Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+  "hi SpellRare guifg=#00ffd7 guibg=NONE guisp=#00ffd7 gui=undercurl cterm=underline
+  
+  "baris status jendela saat ini
+  "contoh ketik:split [file_nama]
+  hi StatusLine ctermfg=white ctermbg=blue cterm=NONE
+  
+  "baris status jendela yang tidak aktif 
+  "Catatan : jika ini sama dengan 'StatusLine' Vim akan menggunakan '^^^' 
+  "di baris status jendela saat ini.
+  hi StatusLineNC ctermfg=darkyellow ctermbg=darkblue cterm=NONE
+  
+  "kolom yang memisahkan jendela yang terbelah secara vertikal
+  hi VertSplit ctermfg=black ctermbg=darkblue cterm=NONE
+  
+  "baris halaman tab, bukan label halaman tab aktif
+  "hi TabLine guifg=#ffffff guibg=#000000 gui=standout cterm=standout
+  
+  "baris halaman tab, di mana tidak ada label
+  "hi TabLineFill guifg=NONE guibg=#000000 gui=reverse cterm=reverse
+  
+  "baris halaman tab, label halaman tab aktif
+  "hi TabLineSel guifg=#ffffff guibg=#000000 gui=bold cterm=bold
+  "bagian dari gui tool bar
+  "hi ToolbarLine guifg=NONE guibg=#000000 gui=NONE cterm=NONE
+  "hi ToolbarButton guifg=#000000 guibg=#e5e5e5 gui=bold cterm=bold
+  "hi Pmenu guifg=fg guibg=#303030 gui=NONE cterm=NONE
+  "hi PmenuSbar guifg=NONE guibg=NONE gui=NONE cterm=NONE
+  "hi PmenuSel guifg=#000000 guibg=#e5e5e5 gui=NONE cterm=NONE
+  "hi PmenuThumb guifg=NONE guibg=#ffffff gui=NONE cterm=NONE
+  
+  "mode diff ketik :vert diffsplit file1.txt file2.txt
+  "menambah baris teks
+  hi DiffAdd ctermfg=white ctermbg=black cterm=NONE
+  "mengubah baris teks
+  hi DiffChange ctermfg=white ctermbg=black cterm=NONE
+  "mengubah teks dalam baris yang diubah
+  hi DiffText ctermfg=red ctermbg=black cterm=NONE
+  "menghapus baris teks
+  hi DiffDelete ctermfg=white ctermbg=black cterm=NONE
+
+  unlet s:t_Co
+  finish
+endif
+
+
+"------------ vim color terminal ----------------
+"color base 8
+if s:t_Co >= 8
+  hi Normal ctermfg=white ctermbg=black cterm=NONE
+  
+  hi! link Terminal Normal
+  hi! link StatusLineTerm StatusLine
+  hi! link StatusLineTermNC StatusLineNC
+  hi! link CurSearch Search
+  hi! link CursorLineFold CursorLine
+  hi! link CursorLineSign CursorLine
+
+  "konstanta karakter 'c'
+  hi Character ctermfg=red ctermbg=black cterm=NONE
+  
+  "digunakan untuk kolom yang diatur dengan kolom warna
+  hi ColorColumn ctermfg=NONE ctermbg=grey cterm=NONE
+
+  "komentar
+  hi Comment ctermfg=grey ctermbg=NONE cterm=NONE
+  
+  "karakter placeholder menggantikan teks tersembunyi
+  hi Conceal ctermfg=grey ctermbg=grey cterm=NONE 
+  
+  "karakter di bawah kursor"kedap kedip"
+  hi Cursor ctermfg=black ctermbg=cyan cterm=NONE
+  
+  "kolom layar tempat kursor berada saat 'kolom kursor' disetel
+  hi CursorColumn ctermfg=NONE ctermbg=NONE cterm=underline
+  
+  "garis layar tempat kursor berada saat 'garis kursor' disetel
+  hi CursorLine ctermfg=NONE ctermbg=NONE cterm=underline
+  hi CursorLineNr ctermfg=red ctermbg=NONE cterm=underline
+  
+  "seperti Kursor, tetapi digunakan saat dalam mode IME |CursorIM|
+  hi CursorIM ctermfg=NONE ctermbg=fg cterm=NONE
+  
+  "nama direktori (dan nama khusus lainnya dalam daftar)
+  hi Directory ctermfg=cyan ctermbg=NONE cterm=NONE
+  
+  "setiap konstruksi yang salah
+  hi Error ctermfg=white ctermbg=red cterm=NONE
+  
+  "pesan kesalahan pada baris perintah
+  hi ErrorMsg ctermfg=white ctermbg=red cterm=NONE
+  
+  "keyword exception 
+  hi Exception ctermfg=darkcyan ctermbg=NONE gui=NONE cterm=NONE
+  
+  "garis yang digunakan untuk lipatan tertutup
+  hi Folded ctermfg=green ctermbg=NONE cterm=NONE
+  "garis yang digunakan untuk diff ketik :vert diffsplit [filename2]
+  hi FoldColumn ctermfg=NONE ctermbg=NONE cterm=NONE
+  
+  "konstanta float:2.5e10
+  hi Float ctermfg=red ctermbg=black cterm=NONE
+  
+  "fungsi atau method
+  "hi Function guifg=#8700ff guibg=#000000 gui=NONE cterm=NONE
+  
+  "dibiarkan kosong, tersembunyi
+  hi Ignore ctermfg=black ctermbg=black cterm=NONE
+  
+  "Nomor baris untuk perintah ':number" dan ':#', dan kapan 'number'
+  "atau opsi 'nomor relatif' disetel
+  "ketik :number atau :#
+  hi LineNr ctermfg=white ctermbg=black cterm=bold
+  
+  "Dimungkinkan untuk memberi kursor GUI warna lain saat pemetaan bahasa
+  "sedang digunakan. Ini dinonaktifkan secara default, untuk menghindari kursor menjadi
+  "tidak terlihat saat Anda menggunakan warna latar non-standar
+  hi lCursor ctermfg=black ctermbg=white cterm=NONE
+  
+  " '~' dan '@' di akhir jendela, karakter dari
+  " 'showbreak' dan karakter lain yang sebenarnya tidak ada dalam teks 
+  " (mis., '>' ditampilkan saat karakter lebar ganda tidak pas di akhir baris).
+  hi NonText ctermfg=cyan ctermbg=NONE cterm=bold
+  
+  "konstanta angka: 234, 0xff
+  hi Number ctermfg=red ctermbg=black cterm=NONE
+  
+  "Praprocessor #include #define #import #from
+  hi PreProc ctermfg=cyan ctermbg=NONE cterm=NONE
+  hi PreCondit ctermfg=cyan ctermbg=NONE cterm=NONE
+  
+  "----- digantikan dengan fungsi hi Statemant ----
+  "perulangan for, do, while, etc
+  "hi Repeat   guifg=#00ffd7 guibg=NONE gui=NONE cterm=NONE
+  
+  "konstanta string: 'ini adalah string'
+  hi String ctermfg=green ctermbg=black cterm=NONE
+  
+  "pernyataan apapun if, then, else, endif, switch, for, try, etc
+  hi Statement ctermfg=cyan ctermbg=NONE cterm=NONE
+  
+  "setiap simbol khusus
+  hi Special ctermfg=darkcyan ctermbg=NONE cterm=NONE
+
+  "teks yang digunakan untuk menampilkan karakter yang tidak
+  "dapat dicetak dalam teks
+  hi SpecialKey ctermfg=cyan ctermbg=NONE cterm=NONE
+  
+  "int, long, char, etc
+  hi Type ctermfg=cyan ctermbg=NONE cterm=NONE
+  
+  "apa pun yang membutuhkan perhatian ekstra; kebanyakan kata kunci TODO FIXME dan XXX
+  hi Todo ctermfg=black ctermbg=yellow cterm=NONE
+  
+  "judul untuk output dari ':set all', ':autocmd' dll.
+  hi Title ctermfg=white ctermbg=NONE cterm=NONE
+  
+  "teks yang menonjol, tautan/link HTML
+  hi Underlined ctermfg=magenta ctermbg=NONE cterm=underline
+  
+  "Penyorotan pola pencarian terakhir digunakan untuk menyorot baris saat ini 
+  "di jendela perbaikan cepat dan item serupa yang perlu menonjol.
+  hi Search ctermfg=black ctermbg=darkyellow cterm=NONE
+  hi IncSearch ctermfg=white ctermbg=NONE cterm=reverse
+  
+  "kolom di mana |sign| ditampilkan
+  hi SignColumn ctermfg=cyan ctermbg=grey cterm=NONE   
+  
+  "mode selection
+  hi Visual ctermfg=darkred ctermbg=black cterm=standout
+  "hi Visual   guifg=#f54242 guibg=#000000 gui=standout cterm=standout
+  
+  "Pemilihan mode visual saat vim adalah 'Tidak Memiliki Pilihan'. 
+  "Hanya X11 Gui |gui-x11| dan |xterm-clipboard| mendukung ini.
+  hi VisualNOS ctermfg=NONE ctermbg=black cterm=underline
+  
+  "pesan peringatan
+  hi WarningMsg ctermfg=darkred ctermbg=NONE cterm=NONE
+  
+  "above abo[veleft] Jalankan {cmd}. 
+  "Jika berisi perintah yang membagi jendela, itu akan dibuka ke kiri 
+  "(pemisahan vertikal) atau di atas (pemisahan horizontal) jendela saat ini. 
+  "Mengabaikan 'splitbelow' dan 'splitright'.
+  "Tidak berfungsi untuk mode |:execute| dan |:normal|.
+  hi! link LineNrAbove LineNr
+  "below bel[owright] Jalankan {cmd}.
+  "Jika berisi perintah yang membagi jendela, itu akan dibuka ke kanan 
+  "(pemisahan vertikal) atau di bawah (pemisahan horizontal) jendela saat ini. 
+  "Mengabaikan 'splitbelow' dan 'splitright'.
+  "Tidak berfungsi untuk |:execute| dan |:normal|.
+  hi! link LineNrBelow LineNr
+  
+  "Karakter di bawah kursor atau tepat sebelum itu, jika itu adalah braket berpasangan,
+  "dan kecocokannya. |pi_paren.txt|
+  hi MatchParen ctermfg=NONE ctermbg=red cterm=NONE
+  
+  "'showmode' message (e.g., '-- INSERT --', '-- VISUAL --')
+  hi ModeMsg ctermfg=black ctermbg=darkcyan cterm=bold
+  
+  "'more-prompt contoh ketik :autocmd (e.g., -- MORE -- etc.)
+  hi MoreMsg ctermfg=black ctermbg=darkcyan cterm=bold
+  "hi Question guifg=#00ff00 guibg=NONE gui=bold cterm=bold
+  
+  "Meta dan kunci khusus yang terdaftar dengan ':map', juga untuk teks yang 
+  "digunakan untuk menampilkan karakter yang tidak dapat dicetak dalam teks, 'listchars'.
+  "Umumnya :text yang ditampilkan berbeda dari aslinya
+  hi SpecialKey ctermfg=cyan ctermbg=NONE cterm=NONE
+  
+  "kecocokan saat ini dalam penyelesaian wildmenu
+  hi WildMenu ctermfg=black ctermbg=cyan cterm=NONE
+  hi QuickFixLine ctermfg=black ctermbg=darkcyan cterm=NONE
+  
+  "Kata yang tidak dikenali oleh pemeriksa ejaan. |spell|
+  "Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+  "hi SpellBad guifg=#ff0000 guibg=NONE guisp=#ff0000 gui=undercurl cterm=underline
+  
+  "Kata yang harus dimulai dengan huruf kapital. |spell|
+  "Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+  "hi SpellCap guifg=#00ffd7 guibg=NONE guisp=#00ffd7 gui=undercurl cterm=underline
+  
+  "Kata yang dikenali oleh pemeriksa ejaan sebagai kata yang digunakan di wilayah lain.
+  "|spell| Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+  "hi SpellLocal guifg=#ff00ff guibg=NONE guisp=#ff00ff gui=undercurl cterm=underline
+  
+  "Kata yang dikenali oleh pemeriksa ejaan sebagai kata yang hampir tidak pernah digunakan. 
+  "|spell| Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
+  "hi SpellRare guifg=#00ffd7 guibg=NONE guisp=#00ffd7 gui=undercurl cterm=underline
+  
+  "baris status jendela saat ini
+  "contoh ketik:split [file_nama]
+  hi StatusLine ctermfg=white ctermbg=blue cterm=NONE
+  
+  "baris status jendela yang tidak aktif 
+  "Catatan : jika ini sama dengan 'StatusLine' Vim akan menggunakan '^^^' 
+  "di baris status jendela saat ini.
+  hi StatusLineNC ctermfg=darkyellow ctermbg=darkblue cterm=NONE
+  
+  "kolom yang memisahkan jendela yang terbelah secara vertikal
+  hi VertSplit ctermfg=black ctermbg=darkblue cterm=NONE
+  
+  "baris halaman tab, bukan label halaman tab aktif
+  "hi TabLine guifg=#ffffff guibg=#000000 gui=standout cterm=standout
+  
+  "baris halaman tab, di mana tidak ada label
+  "hi TabLineFill guifg=NONE guibg=#000000 gui=reverse cterm=reverse
+  
+  "baris halaman tab, label halaman tab aktif
+  "hi TabLineSel guifg=#ffffff guibg=#000000 gui=bold cterm=bold
+  "bagian dari gui tool bar
+  "hi ToolbarLine guifg=NONE guibg=#000000 gui=NONE cterm=NONE
+  "hi ToolbarButton guifg=#000000 guibg=#e5e5e5 gui=bold cterm=bold
+  "hi Pmenu guifg=fg guibg=#303030 gui=NONE cterm=NONE
+  "hi PmenuSbar guifg=NONE guibg=NONE gui=NONE cterm=NONE
+  "hi PmenuSel guifg=#000000 guibg=#e5e5e5 gui=NONE cterm=NONE
+  "hi PmenuThumb guifg=NONE guibg=#ffffff gui=NONE cterm=NONE
+  
+  "mode diff ketik :vert diffsplit file1.txt file2.txt
+  "menambah baris teks
+  hi DiffAdd ctermfg=white ctermbg=black cterm=NONE
+  "mengubah baris teks
+  hi DiffChange ctermfg=white ctermbg=black cterm=NONE
+  "mengubah teks dalam baris yang diubah
+  hi DiffText ctermfg=red ctermbg=black cterm=NONE
+  "menghapus baris teks
+  hi DiffDelete ctermfg=white ctermbg=black cterm=NONE
+
+  unlet s:t_Co
+  finish
+endif
+
+
+" if s:t_Co >= 0
+"   hi Normal term=NONE
+"   hi ColorColumn term=reverse
+"   hi Comment term=bold
+"   hi Constant term=NONE
+"   hi Conceal term=NONE
+"   hi Cursor term=reverse
+"   hi CurSearch term=reverse
+"   hi CursorLineFold term=underline
+"   hi CursorLineSign term=underline
+"   hi CursorColumn term=NONE
+"   hi CursorIM term=NONE
+"   hi CursorLine term=underline
+"   hi CursorLineNr term=bold
+"   hi DiffAdd term=reverse
+"   hi DiffChange term=NONE
+"   hi DiffDelete term=reverse
+"   hi DiffText term=reverse
+"   hi Directory term=NONE
+"   hi EndOfBuffer term=NONE
+"   hi Error term=bold,reverse
+"   hi ErrorMsg term=bold,reverse
+"   hi FoldColumn term=NONE
+"   hi Folded term=NONE
+"   hi Identifier term=NONE
+"   hi Ignore term=NONE
+"   hi IncSearch term=bold,reverse,underline
+"   hi LineNr term=NONE
+"   hi MatchParen term=bold,underline
+"   hi ModeMsg term=bold
+"   hi MoreMsg term=NONE
+"   hi Number term=NONE
+"   hi NonText ctermfg=cyan term=NONE
+"   hi Pmenu term=reverse
+"   hi PmenuSbar term=reverse
+"   hi PmenuSel term=bold
+"   hi PmenuThumb term=NONE
+"   hi PreProc term=NONE
+"   hi Question term=standout
+"   hi Search term=reverse
+"   hi SignColumn term=reverse
+"   hi Special term=NONE
+"   hi SpecialKey term=bold
+"   hi SpellBad term=underline
+"   hi SpellCap term=underline
+"   hi SpellLocal term=underline
+"   hi SpellRare term=underline
+"   hi StatusLine term=bold,reverse
+"   hi StatusLineNC term=bold,underline
+"   hi Statement term=NONE
+"   hi TabLine term=bold,underline
+"   hi TabLineFill term=NONE
+"   hi Terminal term=NONE
+"   hi TabLineSel term=bold,reverse
+"   hi Title term=NONE
+"   hi Todo term=bold,reverse
+"   hi ToolbarLine term=reverse
+"   hi ToolbarButton term=bold,reverse
+"   hi Type term=NONE
+"   hi Underlined term=underline
+"   hi VertSplit term=NONE
+"   hi Visual term=reverse
+"   hi VisualNOS term=NONE
+"   hi WarningMsg term=standout
+"   hi WildMenu term=bold
+" 
+"   unlet s:t_Co
+"   finish
+" endif
