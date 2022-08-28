@@ -662,19 +662,19 @@ if s:t_Co >= 16
   
   "Kata yang tidak dikenali oleh pemeriksa ejaan. |spell|
   "Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
-  "hi SpellBad guifg=#ff0000 guibg=NONE guisp=#ff0000 gui=undercurl cterm=underline
+  hi SpellBad ctermfg=red ctermbg=NONE cterm=underline
   
   "Kata yang harus dimulai dengan huruf kapital. |spell|
   "Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
-  "hi SpellCap guifg=#00ffd7 guibg=NONE guisp=#00ffd7 gui=undercurl cterm=underline
+  hi SpellCap ctermfg=darkcyan ctermbg=NONE cterm=underline
   
   "Kata yang dikenali oleh pemeriksa ejaan sebagai kata yang digunakan di wilayah lain.
   "|spell| Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
-  "hi SpellLocal guifg=#ff00ff guibg=NONE guisp=#ff00ff gui=undercurl cterm=underline
+  hi SpellLocal ctermfg=magenta ctermbg=NONE cterm=underline
   
   "Kata yang dikenali oleh pemeriksa ejaan sebagai kata yang hampir tidak pernah digunakan. 
   "|spell| Ini akan dikombinasikan dengan penyorotan yang digunakan sebaliknya.
-  "hi SpellRare guifg=#00ffd7 guibg=NONE guisp=#00ffd7 gui=undercurl cterm=underline
+  hi SpellRare ctermfg=yellow ctermbg=NONE cterm=underline
   
   "baris status jendela saat ini
   "contoh ketik:split [file_nama]
@@ -689,10 +689,10 @@ if s:t_Co >= 16
   hi VertSplit ctermfg=black ctermbg=darkblue cterm=NONE
   
   "baris halaman tab, bukan label halaman tab aktif
-  "hi TabLine guifg=#ffffff guibg=#000000 gui=standout cterm=standout
+  hi TabLine ctermfg=white ctermbg=black cterm=standout
   
   "baris halaman tab, di mana tidak ada label
-  "hi TabLineFill guifg=NONE guibg=#000000 gui=reverse cterm=reverse
+  hi TabLineFill ctermfg=NONE ctermbg=black cterm=reverse
   
   "baris halaman tab, label halaman tab aktif
   "hi TabLineSel guifg=#ffffff guibg=#000000 gui=bold cterm=bold
