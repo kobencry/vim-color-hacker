@@ -35,10 +35,10 @@
 "==================================
 set background=dark
 hi clear
-let g:colors_name = "koben"
+let g:colors_name = 'koben'
 "opsi terminal
 "t_Co jumlah warna
-let s:t_Co = exists('&t_Co') && !has('gui_running') ? (&t_Co ?? 0) : -1
+let s:t_Co = exists('&t_Co') && !has('gui_running') ? (&t_Co ? 0) : -1
 if (has('termguicolors') && &termguicolors) || has('gui_running')
   let g:terminal_ansi_colors = ['#000000', '#cd0000', '#00cd00', '#cdcd00', '#0000ee', '#cd00cd', '#00cdcd', '#e5e5e5', '#7f7f7f', '#ff0000', '#00ff00', '#ffff00', '#5c5cff', '#ff00ff', '#00ffff', '#ffffff']
 endif
