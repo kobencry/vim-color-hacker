@@ -126,7 +126,7 @@ hi Ignore   guifg=#000000 guibg=#000000 gui=NONE cterm=NONE
 "Nomor baris untuk perintah ':number" dan ':#', dan kapan 'number'
 "atau opsi 'nomor relatif' disetel
 "ketik :number atau :#
-hi LineNr guifg=#ffffff guibg=#000000 gui=bold cterm=bold
+hi LineNr guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
 
 "Dimungkinkan untuk memberi kursor GUI warna lain saat pemetaan bahasa
 "sedang digunakan. Ini dinonaktifkan secara default, untuk menghindari kursor menjadi
@@ -346,7 +346,7 @@ if s:t_Co >= 256
   "Nomor baris untuk perintah ':number" dan ':#', dan kapan 'number'
   "atau opsi 'nomor relatif' disetel
   "ketik :number atau :#
-  hi LineNr ctermfg=255 ctermbg=16 cterm=bold
+  hi LineNr ctermfg=255 ctermbg=16 cterm=NONE
 
   "Dimungkinkan untuk memberi kursor GUI warna lain saat pemetaan bahasa
   "sedang digunakan. Ini dinonaktifkan secara default, untuk menghindari kursor menjadi
@@ -560,7 +560,7 @@ if s:t_Co >= 16
   "Nomor baris untuk perintah ':number" dan ':#', dan kapan 'number'
   "atau opsi 'nomor relatif' disetel
   "ketik :number atau :#
-  hi LineNr ctermfg=white ctermbg=black cterm=bold
+  hi LineNr ctermfg=white ctermbg=black cterm=NONE
   
   "Dimungkinkan untuk memberi kursor GUI warna lain saat pemetaan bahasa
   "sedang digunakan. Ini dinonaktifkan secara default, untuk menghindari kursor menjadi
