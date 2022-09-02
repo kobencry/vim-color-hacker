@@ -12,7 +12,3 @@ vim colors theme simple
 ### python
 ![](https://github.com/kobencry/vim-color-hacker/blob/main/image/python.png)
 
-
-Langkah awal untuk melakukan vim plug
-###### Windows (PowerShell)
-
