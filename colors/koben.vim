@@ -123,6 +123,10 @@ hi Function guifg=#8700ff guibg=#000000 gui=NONE cterm=NONE
 "dibiarkan kosong, tersembunyi
 hi Ignore   guifg=#000000 guibg=#000000 gui=NONE cterm=NONE
 
+"separator tag html '< >'
+hi htmlEndTag guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
+hi htmlTag guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
+
 "Nomor baris untuk perintah ':number" dan ':#', dan kapan 'number'
 "atau opsi 'nomor relatif' disetel
 "ketik :number atau :#
