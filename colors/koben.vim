@@ -1,7 +1,7 @@
 " Name:             koben
 " Author:           GARSEC (Garuda Security)
 " Update:           2022-27-8 02:43:02
-" Groups:           telegram vim indonesia: t.me/VimID
+" Groups:           telegram vim indonesia: https://t.me/VimID
 " License:          Garsec
  
 "Copyright (c) 2020 GARSEC (Garuda Security)
