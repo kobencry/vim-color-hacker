@@ -562,11 +562,9 @@ if s:t_Co >= 16
   
   "fungsi atau method
   hi Function ctermfg=darkcyan ctermbg=black cterm=NONE
-	
-	"separator tag html kurang dari < dan lebih besar >
-	
-	hi htmlTag ctermfg=white ctermbg=black cterm=NONE
-	hi htmlEndTag ctermfg=white ctermbg=black cterm=NONE
+  "separator tag html kurang dari < dan lebih besar >
+  hi htmlTag ctermfg=white ctermbg=black cterm=NONE
+  hi htmlEndTag ctermfg=white ctermbg=black cterm=NONE
 	
   
   "dibiarkan kosong, tersembunyi
