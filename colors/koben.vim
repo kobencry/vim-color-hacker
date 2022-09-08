@@ -25,14 +25,14 @@
 "PERANGKAT LUNAK.
 
 " happy fun program
-"=================================
-"8             8                   
-"8             8                   
-"8  .o  .oPYo. 8oPYo. .oPYo. odYo. 
-"8oP'   8    8 8    8 8oooo8 8' `8 
-"8 `b.  8    8 8    8 8.     8   8 
-"8  `o. `YooP' `YooP' `Yooo' 8   8
-"==================================
+"=============================================
+"			8             8                   
+"			8             8                   
+"			8  .o  .oPYo. 8oPYo. .oPYo. odYo. 
+"			8oP'   8    8 8    8 8oooo8 8' `8 
+"			8 `b.  8    8 8    8 8.     8   8 
+"			8  `o. `YooP' `YooP' `Yooo' 8   8
+"=============================================
 set background=dark
 hi clear
 let g:colors_name = 'koben'
@@ -88,7 +88,7 @@ hi Conceal guifg=#ff00ff guibg=#ff00ff gui=NONE cterm=NONE
 hi Cursor guifg=#ff00ff guibg=#00ffd7 gui=NONE cterm=NONE
 
 "kolom layar tempat kursor berada saat 'kolom kursor' disetel
-hi CursorColumn guifg=NONE guibg=#3a3a3a gui=NONE cterm=NONE
+hi CursorColumn guifg=NONE guibg=#000000 gui=NONE cterm=NONE
 
 "garis layar tempat kursor berada saat 'garis kursor' disetel
 hi CursorLine guifg=NONE guibg=#3a3a3a gui=NONE cterm=NONE
@@ -311,7 +311,7 @@ if s:t_Co >= 256
   hi Cursor ctermfg=16 ctermbg=50 cterm=NONE
 
   "kolom layar tempat kursor berada saat 'kolom kursor' disetel
-  hi CursorColumn ctermfg=NONE ctermbg=236 cterm=NONE
+  hi CursorColumn ctermfg=NONE ctermbg=16 cterm=NONE
 
   "garis layar tempat kursor berada saat 'garis kursor' disetel
   hi CursorLine ctermfg=NONE ctermbg=236 cterm=underline
@@ -514,7 +514,7 @@ if s:t_Co >= 16
   hi Character ctermfg=red ctermbg=black cterm=NONE
   
   "digunakan untuk kolom yang diatur dengan kolom warna
-  hi ColorColumn ctermfg=NONE ctermbg=grey cterm=NONE
+  hi ColorColumn ctermfg=NONE ctermbg=black cterm=NONE
 
   "komentar
   hi Comment ctermfg=grey ctermbg=NONE cterm=NONE
