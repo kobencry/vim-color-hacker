@@ -343,8 +343,9 @@ if s:t_Co >= 256
 
   "fungsi atau method
   hi Function ctermfg=93 ctermbg=NONE cterm=NONE
-
-	"separator tag html kurang dari < dan lebih besar
+	
+	"separator tag html kurang dari < dan lebih besar >
+	
 	hi htmlTag ctermfg=255 ctermbg=16 cterm=NONE
 	hi htmlEndTag ctermfg=255 ctermbg=16 cterm=NONE
 
@@ -561,8 +562,9 @@ if s:t_Co >= 16
   
   "fungsi atau method
   hi Function ctermfg=darkcyan ctermbg=black cterm=NONE
-
+	
 	"separator tag html kurang dari < dan lebih besar >
+	
 	hi htmlTag ctermfg=white ctermbg=black cterm=NONE
 	hi htmlEndTag ctermfg=white ctermbg=black cterm=NONE
 	
