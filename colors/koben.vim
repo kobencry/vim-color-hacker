@@ -343,9 +343,9 @@ if s:t_Co >= 256
 
   "fungsi atau method
   hi Function ctermfg=93 ctermbg=NONE cterm=NONE
-	"separator tag html kurang dari < dan lebih besar >
-	hi htmlTag ctermfg=255 ctermbg=16 cterm=NONE
-	hi htmlEndTag ctermfg=255 ctermbg=16 cterm=NONE
+  "separator tag html kurang dari '<' dan lebih besar '>'
+  hi htmlTag ctermfg=255 ctermbg=16 cterm=NONE
+  hi htmlEndTag ctermfg=255 ctermbg=16 cterm=NONE
 
   "dibiarkan kosong, tersembunyi
   hi Ignore ctermfg=16 ctermbg=16 cterm=NONE
