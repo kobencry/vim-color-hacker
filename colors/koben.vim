@@ -26,12 +26,12 @@
 
 " happy fun program
 "=============================================
-"			8             8                   
-"			8             8                   
-"			8  .o  .oPYo. 8oPYo. .oPYo. odYo. 
-"			8oP'   8    8 8    8 8oooo8 8' `8 
-"			8 `b.  8    8 8    8 8.     8   8 
-"			8  `o. `YooP' `YooP' `Yooo' 8   8
+"		8             8                   
+"		8             8                   
+"		8  .o  .oPYo. 8oPYo. .oPYo. odYo. 
+"		8oP'   8    8 8    8 8oooo8 8' `8 
+"		8 `b.  8    8 8    8 8.     8   8 
+"		8  `o. `YooP' `YooP' `Yooo' 8   8
 "=============================================
 set background=dark
 hi clear
