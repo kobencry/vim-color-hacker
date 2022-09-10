@@ -77,6 +77,10 @@ hi ColorColumn guifg=NONE guibg=#4d4d4d gui=NONE cterm=NONE
 "komentar
 hi Comment guifg=#808080 guibg=NONE gui=NONE cterm=NONE
 
+"konstan
+hi Constant guifg=#8700ff guibg=#000000 gui=NONE cterm=NONE
+
+
 "karakter placeholder menggantikan teks tersembunyi
 hi Conceal guifg=#ff00ff guibg=#ff00ff gui=NONE cterm=NONE
 
@@ -123,6 +127,9 @@ hi Function guifg=#8700ff guibg=#000000 gui=NONE cterm=NONE
 "dibiarkan kosong, tersembunyi
 hi Ignore   guifg=#000000 guibg=#000000 gui=NONE cterm=NONE
 
+"nama variabel apa saja
+hi Identifier guifg=#8700ff guibg=#000000 gui=NONE cterm=NONE
+
 "separator tag html '< >'
 hi htmlEndTag guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
 hi htmlTag guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
@@ -161,9 +168,6 @@ hi Statement    guifg=#00ffd7 guibg=NONE gui=NONE cterm=NONE
 
 "setiap simbol khusus
 hi Special  guifg=#ff6600 guibg=NONE gui=NONE cterm=NONE
-
-
-"hi SpecialChar guifg=#87ff5f guibg=#000000 gui=NONE cterm=NONE
 
 "int, long, char, etc
 hi Type     guifg=#00ffd7 guibg=NONE gui=NONE cterm=NONE
@@ -306,7 +310,9 @@ if s:t_Co >= 256
  
   "karakter placeholder menggantikan teks tersembunyi
   hi Conceal ctermfg=200 ctermbg=200 cterm=NONE
-
+  "konstanta apapun
+  hi Constant ctermfg=93 ctermbg=16 cterm=NONE
+	
   "karakter di bawah kursor"kedap kedip"
   hi Cursor ctermfg=16 ctermbg=50 cterm=NONE
 
@@ -343,12 +349,15 @@ if s:t_Co >= 256
 
   "fungsi atau method
   hi Function ctermfg=93 ctermbg=NONE cterm=NONE
-  "separator tag html kurang dari '<' dan lebih besar '>'
+  
+	"separator tag html kurang dari '<' dan lebih besar '>'
   hi htmlTag ctermfg=255 ctermbg=16 cterm=NONE
   hi htmlEndTag ctermfg=255 ctermbg=16 cterm=NONE
 
   "dibiarkan kosong, tersembunyi
   hi Ignore ctermfg=16 ctermbg=16 cterm=NONE
+  "nama variabel apa saja
+  hi Identifier ctermfg=93 ctermbg=16 cterm=NONE
 
   "Nomor baris untuk perintah ':number" dan ':#', dan kapan 'number'
   "atau opsi 'nomor relatif' disetel
@@ -367,6 +376,9 @@ if s:t_Co >= 256
 
   "konstanta angka: 234, 0xff
   hi Number ctermfg=196 ctermbg=16 cterm=NONE
+
+  "sama seperti mendefinisikan
+	hi Macro ctermfg=93 ctermbg=16 cterm=NONE
 
   "Praprocessor #include #define #import #from
   hi PreProc ctermfg=50 ctermbg=NONE cterm=NONE
