@@ -64,11 +64,8 @@ hi! link Cursearch Search
 hi! link CursorLineFold CursorLine
 hi! link CursorLineSign CursorLine
 
-"konstanta boolean True False
-"hi Boolean guifg=#8700ff guibg=#000000 gui=NONE cterm=NONE
 
 "konstanta karakter 'c', '\n'
-"hi Character guifg=#87ff5f guibg=#000000 gui=NONE cterm=NONE
 hi Character guifg=#f54242 guibg=#000000 gui=NONE cterm=NONE
 
 "digunakan untuk kolom yang diatur dengan kolom warna
@@ -77,16 +74,11 @@ hi ColorColumn guifg=NONE guibg=#4d4d4d gui=NONE cterm=NONE
 "komentar
 hi Comment guifg=#808080 guibg=NONE gui=NONE cterm=NONE
 
-"konstan
+"konstanta apapun
 hi Constant guifg=#8700ff guibg=#000000 gui=NONE cterm=NONE
-
 
 "karakter placeholder menggantikan teks tersembunyi
 hi Conceal guifg=#ff00ff guibg=#ff00ff gui=NONE cterm=NONE
-
-"kodisi if, then, else, endif, switch, etc.
-"hi! Conditional NONE
-"hi Conditional  guifg=#00ffd7 guibg=NONE gui=NONE cterm=NONE
 
 "karakter di bawah kursor"kedap kedip"
 hi Cursor guifg=#ff00ff guibg=#00ffd7 gui=NONE cterm=NONE
