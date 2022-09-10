@@ -12,3 +12,11 @@ vim colors theme simple
 ### python
 ![](https://github.com/kobencry/vim-color-hacker/blob/main/image/python.png)
 
+#### Setting configurasi vimrc untuk warna yang lengkap sesuai kebutuhan:
+
+###### (Python)
+```
+let python_highlight_all=1
+```
+
+
