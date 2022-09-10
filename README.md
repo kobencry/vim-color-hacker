@@ -14,7 +14,7 @@ vim colors theme simple
 
 #### Setting configurasi vimrc untuk warna yang lengkap sesuai kebutuhan:
 
-###### (Python)
+###### pengguna (Python)
 ```
 let python_highlight_all=1
 ```
