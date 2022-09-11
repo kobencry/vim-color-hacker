@@ -76,6 +76,8 @@ hi Comment guifg=#808080 guibg=NONE gui=NONE cterm=NONE
 
 "konstanta apapun
 hi Constant guifg=#8700ff guibg=#000000 gui=NONE cterm=NONE
+"penggunak java
+hi javaConstant guifg=#00ffd7 guibg=#000000 gui=NONE cterm=NONE
 
 "karakter placeholder menggantikan teks tersembunyi
 hi Conceal guifg=#ff00ff guibg=#ff00ff gui=NONE cterm=NONE
@@ -157,6 +159,9 @@ hi String   guifg=#87ff5f guibg=#000000 gui=NONE cterm=NONE
 
 "pernyataan apapun if, then, else, endif, switch, for, try, etc
 hi Statement    guifg=#00ffd7 guibg=NONE gui=NONE cterm=NONE
+"pengguna java
+hi javaStatement guifg=#00ffd7 guibg=#000000 gui=NONE cterm=NONE
+hi javaStorageClass guifg=#8700ff guibg=#000000 gui=NONE cterm=NONE
 
 "setiap simbol khusus
 hi Special  guifg=#ff6600 guibg=NONE gui=NONE cterm=NONE
@@ -191,6 +196,7 @@ hi VisualNOS guifg=NONE guibg=#000000 gui=bold,underline cterm=underline
 
 "pesan peringatan
 hi WarningMsg guifg=#f54242 guibg=NONE gui=NONE cterm=NONE
+
 
 "above abo[veleft] Jalankan {cmd}. 
 "Jika berisi perintah yang membagi jendela, itu akan dibuka ke kiri 
@@ -304,6 +310,7 @@ if s:t_Co >= 256
   hi Conceal ctermfg=200 ctermbg=200 cterm=NONE
   "konstanta apapun
   hi Constant ctermfg=93 ctermbg=16 cterm=NONE
+	hi javaConstant ctermfg=93 ctermbg=16 cterm=NONE
 	
   "karakter di bawah kursor"kedap kedip"
   hi Cursor ctermfg=16 ctermbg=50 cterm=NONE
@@ -381,6 +388,8 @@ if s:t_Co >= 256
 
   "pernyataan apapun if, then, else, endif, switch, for, try, etc
   hi Statement ctermfg=50 ctermbg=NONE cterm=NONE
+	hi javaStatement ctermfg=50 ctermbg=NONE cterm=NONE
+  hi javaStorageClass ctermfg=93 ctermbg=NONE cterm=NONE
 
   "setiap simbol khusus
   hi Special  ctermfg=202 ctermbg=NONE cterm=NONE
