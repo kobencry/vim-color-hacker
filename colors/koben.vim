@@ -257,7 +257,7 @@ hi StatusLine guifg=#ffffff guibg=#0000ff gui=NONE cterm=NONE
 hi StatusLineNC guifg=#ffff00 guibg=#000080 gui=NONE cterm=NONE
 
 "kolom yang memisahkan jendela yang terbelah secara vertikal
-hi VertSplit guifg=#000000 guibg=#0000ee gui=NONE cterm=NONE
+hi VertSplit guifg=#000000 guibg=#666666 gui=inverse cterm=NONE
 
 "baris halaman tab, bukan label halaman tab aktif
 hi TabLine guifg=#ffffff guibg=#000000 gui=standout cterm=standout
