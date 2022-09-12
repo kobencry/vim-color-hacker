@@ -482,7 +482,7 @@ if s:t_Co >= 256
   hi StatusLineNC ctermfg=220 ctermbg=17 cterm=NONE
 
   "kolom yang memisahkan jendela yang terbelah secara vertikal
-  hi VertSplit ctermfg=16 ctermbg=231 cterm=NONE
+  hi VertSplit ctermfg=16 ctermbg=236 cterm=inverse
 
   "baris halaman tab, bukan label halaman tab aktif
   hi TabLine ctermfg=231 ctermbg=16 cterm=standout
