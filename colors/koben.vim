@@ -249,12 +249,14 @@ hi SpellRare guifg=#00ffd7 guibg=NONE guisp=#00ffd7 gui=undercurl cterm=underlin
 
 "baris status jendela saat ini
 "contoh ketik:split [file_nama]
-hi StatusLine guifg=#ffffff guibg=#0000ff gui=NONE cterm=NONE
+"hi StatusLine guifg=#ffffff guibg=#0000ff gui=NONE cterm=NONE
+hi StatusLine guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
 
 "baris status jendela yang tidak aktif 
 "Catatan : jika ini sama dengan 'StatusLine' Vim akan menggunakan '^^^' 
 "di baris status jendela saat ini.
-hi StatusLineNC guifg=#ffff00 guibg=#000080 gui=NONE cterm=NONE
+"hi StatusLineNC guifg=#ffff00 guibg=#000080 gui=NONE cterm=NONE
+hi StatusLineNC guifg=#ffff00 guibg=#000000 gui=NONE cterm=NONE
 
 "kolom yang memisahkan jendela yang terbelah secara vertikal
 hi VertSplit guifg=#000000 guibg=#666666 gui=inverse cterm=NONE
@@ -474,14 +476,16 @@ if s:t_Co >= 256
 
   "baris status jendela saat ini
   "contoh ketik:split [file_nama]
-  hi StatusLine ctermfg=255 ctermbg=20 cterm=bold
+  "hi StatusLine ctermfg=255 ctermbg=20 cterm=bold
+  hi StatusLine ctermfg=255 ctermbg=16 cterm=bold
 
   "baris status jendela yang tidak aktif 
   "Catatan : jika ini sama dengan 'StatusLine' Vim akan menggunakan '^^^' 
   "di baris status jendela saat ini.
-  hi StatusLineNC ctermfg=220 ctermbg=17 cterm=NONE
-
-  "kolom yang memisahkan jendela yang terbelah secara vertikal
+  "hi StatusLineNC ctermfg=220 ctermbg=17 cterm=NONE
+  hi StatusLineNC ctermfg=220 ctermbg=16 cterm=NONE
+  
+	"kolom yang memisahkan jendela yang terbelah secara vertikal
   hi VertSplit ctermfg=16 ctermbg=236 cterm=inverse
 
   "baris halaman tab, bukan label halaman tab aktif
