@@ -6,24 +6,24 @@
 
 "ketika file syntax sudah dimuat akan keluar
 if exists('b:current_syntax')
-	"pengguna java
-	"-------------------------------------------------------------
-	syntax keyword javaStatement System out println
-	syntax keyword javaStatement String
-	syntax keyword javaStatement new instanceof
-	syntax keyword javaStatement public class static
-	syntax match javaClassDecl "\(\w\+\s\?{\@=\)\+"
-	syntax match javaFuncDef "\(\s\w\+(\@=\)\+"
+  "pengguna java
+  "-------------------------------------------------------------
+  syntax keyword javaStatement System out println
+  syntax keyword javaStatement String
+  syntax keyword javaStatement new instanceof
+  syntax keyword javaStatement public class static
+  syntax match javaClassDecl "\(\w\+\s\?{\@=\)\+"
+  syntax match javaFuncDef "\(\s\w\+(\@=\)\+"
   syntax match javaFuncDef "\(\.\@!\w\+(\@=\)"
 	
-	"pengguna c
-	"-------------------------------------------------------------
+  "pengguna c
+  "-------------------------------------------------------------
 	
-	"pengguna c++
-	"-------------------------------------------------------------
+  "pengguna c++
+  "-------------------------------------------------------------
 	
-	"pengguna javascript
-	"-------------------------------------------------------------
-	finish
+  "pengguna javascript
+  "-------------------------------------------------------------
+  finish
 endif
 
