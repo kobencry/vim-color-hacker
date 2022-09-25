@@ -13,7 +13,9 @@ if exists('b:current_syntax')
 	syntax keyword javaStatement new instanceof
 	syntax keyword javaStatement public class static
 	syntax match javaClassDecl "\(\w\+\s\?{\@=\)\+"
-	syntax match javaFuncDef "\(\s\w\+(\@=\)\+"	
+	syntax match javaFuncDef "\(\s\w\+(\@=\)\+"
+  syntax match javaFuncDef "\(\.\@!\w\+(\@=\)"
+	
 	"pengguna c
 	"-------------------------------------------------------------
 	
