@@ -1,6 +1,6 @@
 ### vim colors theme simple
 
-![](image/vimcolor.gif)
+![](image/vimage.gif)
 
 #### Setting configurasi vimrc untuk warna yang lengkap sesuai kebutuhan:
 
