@@ -1,4 +1,4 @@
-" Name:             koben
+" Maintainer:       koben
 " Author:           GARSEC (Garuda Security)
 " Update:           2022-26-9 01:43:02
 " Groups:           telegram vim indonesia: https://t.me/VimID 
@@ -21,38 +21,39 @@ hi! link CursorLineFold CursorLine
 hi! link CursorLineSign CursorLine
 
 " syntax java
-hi javaStatement ctermfg=51 ctermbg=16 cterm=NONE guifg=#00ffff guibg=#000000 gui=NONE
-hi javaConstant ctermfg=51 ctermbg=16 cterm=NONE guifg=#00ffff guibg=#000000 gui=NONE
 hi javaStorageClass ctermfg=62 ctermbg=16 cterm=NONE guifg=#5f5fd7 guibg=#000000 gui=NONE
-
-
+"modenormal
 hi Normal ctermfg=231 ctermbg=16 cterm=NONE guifg=#ffffff guibg=#000000 gui=NONE
-"Nomor baris untuk perintah ':number" dan ':#', dan kapan 'number'
-"atau opsi 'nomor relatif' disetel
-"ketik :number atau :#
-hi LineNr ctermfg=102 ctermbg=237 cterm=NONE guifg=#90908a guibg=#000000 gui=NONE
+"nilai boolean true, false
+hi Boolean ctermfg=62 ctermbg=16 cterm=bold guifg=#5f5fd7 guibg=#000000 gui=bold
+"kolom layar tempat kursor berada saat 'kolom kursor' disetel
+hi CursorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#000000 gui=NONE
 "garis layar tempat kursor berada saat 'garis kursor' disetel
 hi CursorLine ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
-" konstanta string: 'hello world' "hello world"
-hi String ctermfg=148 ctermbg=16 cterm=NONE guifg=#87ff5f guibg=#000000 gui=NONE
-"nama direktori (dan nama khusus lainnya dalam daftar)
-hi Directory ctermfg=62 ctermbg=NONE cterm=NONE guifg=#5f5fd7 guibg=NONE gui=NONE
-" exception
-hi Exception ctermfg=62 ctermbg=16 cterm=NONE guifg=#5f5fd7 guibg=#000000 gui=NONE
-" method/fungsi bawaan
-hi Function ctermfg=62 ctermbg=16 cterm=NONE guifg=#5f5fd7 guibg=#000000 gui=NONE
-" angka
-hi Number ctermfg=197 ctermbg=16 cterm=NONE guifg=#ff005f guibg=#000000 gui=NONE
-"statemen class def/function if else for while boolean exception
-hi Statement ctermfg=51 ctermbg=16 cterm=NONE guifg=#00ffff guibg=#000000 gui=NONE
 " komentar
 hi Comment ctermfg=242 ctermbg=16 cterm=NONE guifg=#75715e guibg=#000000 gui=NONE
-" float
+"nama direktori (dan nama khusus lainnya dalam daftar)
+hi Directory ctermfg=62 ctermbg=NONE cterm=NONE guifg=#5f5fd7 guibg=NONE gui=NONE
+"exception
+hi Exception ctermfg=62 ctermbg=16 cterm=NONE guifg=#5f5fd7 guibg=#000000 gui=NONE
+"float
 hi Float ctermfg=197 ctermbg=16 cterm=NONE guifg=#ff005f guibg=#000000 gui=NONE
 " lipatan program
 hi Folded ctermfg=242 ctermbg=235 cterm=NONE guifg=#75715e guibg=#272822 gui=NONE
 " garis yang digunakan untuk different ketik :vert diffsplit [file_name]
 hi FoldColumn ctermfg=16 ctermbg=148 cterm=NONE guifg=#87ff5f guibg=#000000 gui=NONE
+" method/fungsi bawaan
+hi Function ctermfg=62 ctermbg=16 cterm=NONE guifg=#5f5fd7 guibg=#000000 gui=NONE
+"Nomor baris untuk perintah ':number" dan ':#', dan kapan 'number'
+"atau opsi 'nomor relatif' disetel
+"ketik :number atau :#
+hi LineNr ctermfg=102 ctermbg=237 cterm=NONE guifg=#90908a guibg=#000000 gui=NONE
+" konstanta string: 'hello world' "hello world"
+hi String ctermfg=148 ctermbg=16 cterm=NONE guifg=#87ff5f guibg=#000000 gui=NONE
+" angka
+hi Number ctermfg=197 ctermbg=16 cterm=NONE guifg=#ff005f guibg=#000000 gui=NONE
+"statemen class def/function if else for while boolean exception
+hi Statement ctermfg=51 ctermbg=16 cterm=NONE guifg=#00ffff guibg=#000000 gui=NONE
 " modevisual
 hi Visual ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
 " vertical split file
@@ -81,8 +82,6 @@ hi Underlined ctermfg=93 ctermbg=NONE  cterm=underline guifg=#8700ff guibg=NONE 
 hi Todo ctermfg=16 ctermbg=226 cterm=NONE guifg=#000000 guibg=#c0c000 gui=NONE
 "judul untuk output :set all atau :autocmd dll.
 hi Title ctermfg=231 ctermbg=NONE cterm=NONE guifg=#ffffff guibg=NONE gui=NONE
-"kolom layar tempat kursor berada saat 'kolom kursor' disetel
-hi CursorColumn ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#000000 gui=NONE
 "setiap simbol khusus
 hi Special ctermfg=197 ctermbg=NONE cterm=NONE guifg=#ff005f guibg=NONE gui=NONE
 "mode diff ketik :vert diffsplit file1.txt file2.txt
