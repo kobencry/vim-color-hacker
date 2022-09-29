@@ -12,7 +12,7 @@ if exists('b:current_syntax')
   syntax keyword javaStatement String
   syntax keyword javaStatement new instanceof
   syntax keyword javaStatement public class static
-	syntax keyword javaBoolean true false
+  syntax keyword javaBoolean true false
   syntax match javaClassDecl "\(\w\+\s\?{\@=\)\+"
   syntax match javaFuncDef "\(\s\w\+(\@=\)\+"
   syntax match javaFuncDef "\(\.\@!\w\+(\@=\)"
