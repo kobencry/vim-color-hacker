@@ -59,7 +59,7 @@ hi Visual ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
 " vertical split file
 hi VertSplit ctermfg=241 ctermbg=241 cterm=NONE guifg=#64645e guibg=#000000 gui=NONE
 " status baris
-hi StatusLine ctermfg=231 ctermbg=241 cterm=bold guifg=#f8f8f2 guibg=#000000 gui=bold
+hi StatusLine ctermfg=231 ctermbg=241 cterm=NONE guifg=#f8f8f2 guibg=#000000 gui=NONE
 hi StatusLineNC ctermfg=231 ctermbg=241 cterm=NONE guifg=#f8f8f2 guibg=#000000 gui=NONE
 " '~' dan '@' diakhir jendela vim
 hi NonText ctermfg=62 ctermbg=16 cterm=bold guifg=#5f5fd7 guibg=#000000 gui=bold
@@ -73,6 +73,8 @@ hi MoreMsg ctermfg=16 ctermbg=82 cterm=NONE guifg=#000000 guibg=#66ff66 gui=NONE
 hi Question ctermfg=16 ctermbg=82 cterm=NONE guifg=#00ff00 guibg=NONE gui=NONE
 "pesan peringatan
 hi WarningMsg ctermfg=196 ctermbg=NONE cterm=NONE guifg=#f54242 guibg=NONE gui=NONE
+"kecocokan saat ini dalam penyelesaian wildmenu file/folder
+hi WildMenu ctermfg=16 ctermbg=61 cterm=bold guifg=#000000 guibg=#5f5faf gui=bold
 "int, long, char, etc
 hi Type ctermfg=51 ctermbg=NONE cterm=NONE guifg=#00ffff guibg=NONE gui=NONE
 "Praprocessor #include #define #import #from
