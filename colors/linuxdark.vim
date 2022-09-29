@@ -58,9 +58,13 @@ hi Statement ctermfg=51 ctermbg=16 cterm=NONE guifg=#00ffff guibg=#000000 gui=NO
 hi Visual ctermfg=NONE ctermbg=59 cterm=NONE guifg=NONE guibg=#49483e gui=NONE
 " vertical split file
 hi VertSplit ctermfg=241 ctermbg=241 cterm=NONE guifg=#64645e guibg=#000000 gui=NONE
-" status baris
-hi StatusLine ctermfg=231 ctermbg=241 cterm=NONE guifg=#f8f8f2 guibg=#000000 gui=NONE
-hi StatusLineNC ctermfg=231 ctermbg=241 cterm=NONE guifg=#f8f8f2 guibg=#000000 gui=NONE
+" status baris jendela vim saat ini
+" ketik :split nama_file
+hi StatusLine ctermfg=220 ctermbg=17 cterm=NONE guifg=#ffff00 guibg=#000000 gui=NONE
+"baris status jendela yang tidak aktif 
+"Catatan : jika ini sama dengan 'StatusLine' Vim akan menggunakan '^^^' 
+"di baris status jendela saat ini.
+hi StatusLineNC ctermfg=255 ctermbg=20 cterm=NONE guifg=#ffffff guibg=#000000 gui=NONE
 " '~' dan '@' diakhir jendela vim
 hi NonText ctermfg=62 ctermbg=16 cterm=bold guifg=#5f5fd7 guibg=#000000 gui=bold
 "syntax popup
