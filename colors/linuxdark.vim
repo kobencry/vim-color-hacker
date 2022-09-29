@@ -63,6 +63,11 @@ hi StatusLine ctermfg=231 ctermbg=241 cterm=bold guifg=#f8f8f2 guibg=#000000 gui
 hi StatusLineNC ctermfg=231 ctermbg=241 cterm=NONE guifg=#f8f8f2 guibg=#000000 gui=NONE
 " '~' dan '@' diakhir jendela vim
 hi NonText ctermfg=62 ctermbg=16 cterm=bold guifg=#5f5fd7 guibg=#000000 gui=bold
+"syntax popup
+hi Pmenu ctermfg=fg ctermbg=233 cterm=NONE guifg=fg guibg=#121212 gui=NONE
+hi PmenuSel ctermfg=16 ctermbg=61 cterm=NONE guifg=#000000 guibg=#5f5faf gui=NONE
+"'showmode' message (e.g., '-- INSERT --', '-- VISUAL --')
+hi ModeMsg ctermfg=148 ctermbg=16 cterm=NONE guifg=#87ff5f guibg=#000000 gui=NONE
 " more-prompt (e.g., -- More -- .etc) contoh ketik :autocmd  
 hi MoreMsg ctermfg=16 ctermbg=82 cterm=NONE guifg=#000000 guibg=#66ff66 gui=NONE
 hi Question ctermfg=16 ctermbg=82 cterm=NONE guifg=#00ff00 guibg=NONE gui=NONE
